@@ -208,6 +208,8 @@ impl Pprof<'_> {
             .build()
             .map_err(|e| PyroscopeError::new(e.to_string().as_str()))?;
 
+        println!("{:?}", report);
+
         let stack_buffer = Into::<StackBuffer>::into(Into::<StackBufferWrapper>::into((
             report,
             &self.backend_config,
